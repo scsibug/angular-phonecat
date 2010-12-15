@@ -60,3 +60,22 @@ describe('DetailCtrl', function() {
     });
   });
 });
+
+describe('FavoritesCtrl', function(){
+  var rootScope, favoritesCtrl, favorites, $browser;
+  beforeEach(function(){
+    rootScope = angular.scope();
+    favorites = rootScope.$inject('favorites');
+    $browser = rootScope.$inject('$browser');
+    favoritesCtrl = rootScope.$new(FavoritesCtrl);
+  });
+  it('should load all phones from the favorites service', function(){
+    favorites.add('123');
+    favorites.add('456');
+    $browser.xhr.expectGET('/app/phones/123.json').respond({id:123, name:'A'});
+    $browser.xhr.expectGET('/app/phones/456.json').respond({id:456, name:'B'});
+    favoritesCtrl.loadPhones();
+    $browser.xhr.flush();
+    expect(favoritesCtrl.phones).toEqualData([{id:123, name:'A'}, {id:456, name:'B'}]);
+  });
+});

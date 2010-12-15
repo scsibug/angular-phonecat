@@ -30,8 +30,7 @@ describe('favorites', function(){
     });
 
   });
-
-
+  
   describe('has', function() {
 
     it('should return true if an item is favorite', function() {

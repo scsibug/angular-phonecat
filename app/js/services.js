@@ -1,4 +1,5 @@
 angular.service('phoneCatApp', function($route, $location, $resource, $window) {
+  $route.when('/favorites', {template:'partials/favorites.html', controller:FavoritesCtrl});
   $route.when('/phones/', {template:'partials/catalog.html', controller:CatalogCtrl});
   $route.when('/phones/:phoneId', {template:'partials/detail.html', controller:DetailCtrl});
   $route.onChange(function() {
@@ -31,7 +32,7 @@ angular.service('favorites', function($cookieStore){
       delete favorites[phoneId];
       $cookieStore.put('favorites', favorites);
     },
-    list:function() {
+    list: function() {
       var list = [];
       angular.foreach($cookieStore.get('favorites') || {}, function(value, key){
         list.push(key);

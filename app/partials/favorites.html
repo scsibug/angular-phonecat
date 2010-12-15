@@ -1,0 +1,6 @@
+<ul ng:init="loadPhones()">
+  <li ng:repeat="phone in phones">
+    {{phone.name}}
+    <img ng:src="{{phone.images[0].small}}">
+  </li>
+</ul>

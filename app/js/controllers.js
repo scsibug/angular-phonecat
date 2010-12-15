@@ -16,3 +16,15 @@ function DetailCtrl() {
 DetailCtrl.prototype.selectImg = function(index) {
   this.selectedImg = index;
 };
+
+FavoritesCtrl.$inject=['favorites'];
+function FavoritesCtrl(favorites){
+  this.favorites = favorites;
+};
+
+FavoritesCtrl.prototype.loadPhones = function(){
+  this.phones = [];
+  angular.foreach(this.favorites.list(), function(phoneId){
+    this.phones.push(this.Phone.get({phoneId:phoneId}));
+  }, this);
+};
