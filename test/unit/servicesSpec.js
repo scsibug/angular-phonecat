@@ -44,4 +44,20 @@ describe('favorites', function(){
 
   });
 
+  describe('list', function() {
+
+    it('should return list of favorites in sorted order', function() {
+      expect(favorites.list()).toEqual([]);
+
+      favorites.add('abc');
+
+      expect(favorites.list()).toEqual(['abc']);
+
+      favorites.add('123');
+
+      expect(favorites.list()).toEqual(['123', 'abc']);
+    });
+
+  });
+
 });

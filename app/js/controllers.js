@@ -15,4 +15,4 @@ function DetailCtrl() {
 
 DetailCtrl.prototype.selectImg = function(index) {
   this.selectedImg = index;
-}
+};

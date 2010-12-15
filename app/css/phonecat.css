@@ -77,3 +77,10 @@ ul.specs dt {
 h1 {
 	border-bottom: 1px solid gray;
 }
+
+.linkbar {
+	text-align: right;
+	border-bottom: 1px solid black;
+	padding-bottom: .5em;
+	margin-bottom: 1em;
+}

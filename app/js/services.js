@@ -30,6 +30,14 @@ angular.service('favorites', function($cookieStore){
       var favorites = $cookieStore.get('favorites') || {};
       delete favorites[phoneId];
       $cookieStore.put('favorites', favorites);
+    },
+    list:function() {
+      var list = [];
+      angular.foreach($cookieStore.get('favorites') || {}, function(value, key){
+        list.push(key);
+      });
+      list.sort();
+      return list;
     }
   };
 }, {$inject:['$cookieStore']});
