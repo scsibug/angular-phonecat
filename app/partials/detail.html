@@ -103,7 +103,7 @@
       <dt>Primary</dt>
       <dd>{{phone.camera.primary}}</dd>
       <dt>Features</dt>
-      <dd>{{phone.camera.features}}</dd>
+      <dd ng:repeat="feature in phone.camera.features">{{feature}}</dd>
     </dl>
   </li>
   <li>
